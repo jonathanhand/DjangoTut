@@ -1,9 +1,25 @@
-{% if latest_question_list %}
-    <ul>
-    {% for question in latest_question_list %}
-        <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No polls are available.</p>
-{% endif %}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+
+<!--<div class="intro">-->
+<div class="header">
+ <a href="#default" class="logo"><img src="https://mdn.mozillademos.org/files/11305/firefox.png"/></a>
+ <div class="header-right">
+   <a class="active" href="http://127.0.0.1:8000/admin">Admin</a>
+   <a href="#contact">Contact</a>
+   <a href="#about">About</a>
+ </div>
+</div>
+<div class="multi-bg-example"></div>
+
+  {% if latest_question_list %}
+      <ul>
+      {% for question in latest_question_list %}
+          <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>
+      {% endfor %}
+      </ul>
+  {% else %}
+      <p>No polls are available.</p>
+  {% endif %}
